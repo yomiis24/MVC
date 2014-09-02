@@ -12,12 +12,13 @@ class Request
             $url=  filter_input (INPUT_GET,'url', FILTER_SANITIZE_URL);
             $url=  explode('/',$url);
             $url=  array_filter($url);
-            $con= strtolower(array_shift($url));
-            $con= explode('.php', $con);
-    }  
-    $this->_Controlador= strtolower(array_shift($con));
+            
+            $this->_Controlador= strtolower(array_shift($con));
     $this->_Metodo=  strtolower(array_shift($url));
-    $this->_Argumentos= $url;
+   $this->_Argumentos= $url;
+            
+    }  
+    
     
     if(!$this->_Controlador){
         
