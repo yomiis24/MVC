@@ -1,7 +1,7 @@
 <?php
 
 
-Class holaController extends Controller
+Class indexController extends Controller
 {
     
     public function __construct() {
@@ -12,8 +12,12 @@ Class holaController extends Controller
     public function index()
             
     {
-        $this->_view->titulo = 'Hola';
-        $this->_view->renderizar('index', 'hola');
+        $post = $this->loadModel('post');
+        
+        $this->_view->posts = $post->getPosts();
+        
+        $this->_view->titulo = 'Portada';
+        $this->_view->renderizar('index', 'inicio');
     }
 }
 
